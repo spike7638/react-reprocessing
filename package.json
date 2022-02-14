@@ -15,8 +15,8 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "start:res": "bsb -make-world -w",
-    "build:res": "bsb -make-world",
+    "start:res": "rescript build -w",
+    "build:res": "rescript build",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
@@ -41,7 +41,8 @@
   },
   "devDependencies": {
     "bs-platform": "^9.0.0",
+    "copy-webpack-plugin": "^5.0.4",
     "gentype": "^3.43.0",
-    "copy-webpack-plugin": "^5.0.4"
+    "rescript": "^9.1.4"
   }
 }
