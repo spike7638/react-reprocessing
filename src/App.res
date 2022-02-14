@@ -28,6 +28,7 @@ import './App.css';
 let make = () => {
   (
     <div className="App">
+    <Square />
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>

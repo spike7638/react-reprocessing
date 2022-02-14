@@ -2,6 +2,7 @@
 
 import * as React from "react";
 import LogoSvg from "./logo.svg";
+import * as Square$RescriptReactIntro from "./Square.bs.js";
 
 import './App.css';
 ;
@@ -11,7 +12,7 @@ var logo = LogoSvg;
 function App(Props) {
   return React.createElement("div", {
               className: "App"
-            }, React.createElement("header", {
+            }, React.createElement(Square$RescriptReactIntro.make, {}), React.createElement("header", {
                   className: "App-header"
                 }, React.createElement("img", {
                       className: "App-logo",
