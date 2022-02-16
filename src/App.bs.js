@@ -14,16 +14,7 @@ function App(Props) {
               className: "App"
             }, React.createElement(Square$RescriptReactIntro.make, {}), React.createElement("header", {
                   className: "App-header"
-                }, React.createElement("img", {
-                      className: "App-logo",
-                      alt: "logo",
-                      src: logo
-                    }), React.createElement("p", undefined, "Edit ", React.createElement("code", undefined, "src/App.res"), " and save to reload."), React.createElement("a", {
-                      className: "App-link",
-                      href: "https://reactjs.org",
-                      rel: "noopener noreferrer",
-                      target: "_blank"
-                    }, "Learn React")));
+                }, React.createElement("p", undefined, "Edit ", React.createElement("code", undefined, "src/App.res"), " and save to reload.")));
 }
 
 var make = App;
