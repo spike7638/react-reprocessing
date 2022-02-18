@@ -8,7 +8,8 @@ Then, in a terminal
 > yarn install (took a while!)
 because "yarn start" said "react-scripts not found"
 
-Still can't get the rescript-build to happen as part of the overall build or serve...
-Let's not worry about that for now. 
-
-PLAN: try to copy from MinReTurbo(2?) to get reprocessing installed
+This version now has 
+(a) buttons (top row) that update a global value defined in Store.res
+(b) buttons (middle row) that update another value, a sum of a locally-store value and the global value
+(this computed value isn't used anywhere except to display as a label between the buttons)
+(c) a ReProcessing program in which a square in the middle of a larger square has its size adjusted by any change in that global value controlled by the upper button-pair. 
