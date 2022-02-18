@@ -3,9 +3,7 @@
 import * as React from "react";
 import * as ReactDom from "react-dom";
 import * as Caml_option from "rescript/lib/es6/caml_option.js";
-import * as App$RescriptReactIntro from "./App.bs.js";
-import * as Target$RescriptReactIntro from "./Target.bs.js";
-import * as Controls$RescriptReactIntro from "./Controls.bs.js";
+import * as AppMain$RescriptReactIntro from "./AppMain.bs.js";
 
 import './index.css';
 ;
@@ -13,7 +11,7 @@ import './index.css';
 var rootQuery = document.querySelector("#root");
 
 if (!(rootQuery == null)) {
-  ReactDom.render(React.createElement("div", undefined, React.createElement(Controls$RescriptReactIntro.make, {}), React.createElement("hr", undefined), React.createElement(App$RescriptReactIntro.make, {}), React.createElement(Target$RescriptReactIntro.make, {})), rootQuery);
+  ReactDom.render(React.createElement("div", undefined, React.createElement(AppMain$RescriptReactIntro.make, {})), rootQuery);
 }
 
 var rootQuery$1 = (rootQuery == null) ? undefined : Caml_option.some(rootQuery);

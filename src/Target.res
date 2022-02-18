@@ -8,12 +8,12 @@
 // .. and target+ button is pressed, Target shows 24. Then if controls+ button is pressed, 
 // .. controls shows 30, and target shows 34. 
 // So (roughly) Target's value is "local" and "Control's" value is part of global state
-type state = {count: int}
+type stateLocal = {count: int}
 
 let {useReducer} = module (React.Uncurried)
 let {string} = module (React)
 let {render,querySelector} = module (ReactDOM )
-let initialState = {count: 100}
+let initialState = {count: 0}
 let reducer = (state, action) =>
   switch action {
   | #Increment => {count: state.count + 1}
@@ -22,15 +22,17 @@ let reducer = (state, action) =>
  
  
 @react.component
-let make = () => {
-  let (state, dispatch) = useReducer(reducer, initialState)
+let make = (~state: Store.state, ~dispatch: Store.action => unit) => {
+  let (stateLocal, dispatchLocal) = useReducer(reducer, initialState)
   <main>
     <div className="Controls">
       <header className="Controls-header">
         <div>
-        <button onClick={_ => dispatch(.#Decrement)}> {string("Decrement")} </button>
-        <span className="counter"> {state.count->string_of_int->string} </span>
-        <button onClick={_ => dispatch(.#Increment)}> {string("Increment")} </button>
+        <button onClick={_ => dispatchLocal(.#Decrement)}> {string("Decrement")} </button>
+
+        <span className="counter"> {(state.data.counter + stateLocal.count)->string_of_int->string} </span>
+       
+        <button onClick={_ => dispatchLocal(.#Increment)}> {string("Increment")} </button>
       </div>
       </header>
     </div>

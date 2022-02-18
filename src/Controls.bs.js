@@ -2,58 +2,27 @@
 
 import * as Curry from "rescript/lib/es6/curry.js";
 import * as React from "react";
-import * as ReactDom from "react-dom";
-import * as Caml_option from "rescript/lib/es6/caml_option.js";
-
-function useReducer(prim0, prim1) {
-  return React.useReducer(Curry.__2(prim0), prim1);
-}
-
-function string(prim) {
-  return prim;
-}
-
-function render(prim0, prim1) {
-  ReactDom.render(prim0, prim1);
-  
-}
-
-function querySelector(prim) {
-  return Caml_option.nullable_to_opt(document.querySelector(prim));
-}
-
-var initialState = {
-  count: 100
-};
-
-function reducer(state, action) {
-  if (action === "Decrement") {
-    return {
-            count: state.count - 10 | 0
-          };
-  } else {
-    return {
-            count: state.count + 10 | 0
-          };
-  }
-}
 
 function Controls(Props) {
-  var match = React.useReducer(reducer, initialState);
-  var dispatch = match[1];
+  var state = Props.state;
+  var dispatch = Props.dispatch;
   return React.createElement("main", undefined, React.createElement("div", {
                   className: "Controls"
                 }, React.createElement("header", {
                       className: "Controls-header"
                     }, React.createElement("div", undefined, React.createElement("button", {
                               onClick: (function (param) {
-                                  return dispatch("Decrement");
+                                  return Curry._1(dispatch, /* ChangeValue */{
+                                              counter: state.data.counter - 10 | 0
+                                            });
                                 })
                             }, "Decrement"), React.createElement("span", {
                               className: "counter"
-                            }, String(match[0].count)), React.createElement("button", {
+                            }, String(state.data.counter)), React.createElement("button", {
                               onClick: (function (param) {
-                                  return dispatch("Increment");
+                                  return Curry._1(dispatch, /* ChangeValue */{
+                                              counter: state.data.counter + 10 | 0
+                                            });
                                 })
                             }, "Increment")))));
 }
@@ -61,12 +30,6 @@ function Controls(Props) {
 var make = Controls;
 
 export {
-  useReducer ,
-  string ,
-  render ,
-  querySelector ,
-  initialState ,
-  reducer ,
   make ,
   
 }

@@ -23,7 +23,7 @@ function querySelector(prim) {
 }
 
 var initialState = {
-  count: 100
+  count: 0
 };
 
 function reducer(state, action) {
@@ -39,21 +39,22 @@ function reducer(state, action) {
 }
 
 function Target(Props) {
+  var state = Props.state;
   var match = React.useReducer(reducer, initialState);
-  var dispatch = match[1];
+  var dispatchLocal = match[1];
   return React.createElement("main", undefined, React.createElement("div", {
                   className: "Controls"
                 }, React.createElement("header", {
                       className: "Controls-header"
                     }, React.createElement("div", undefined, React.createElement("button", {
                               onClick: (function (param) {
-                                  return dispatch("Decrement");
+                                  return dispatchLocal("Decrement");
                                 })
                             }, "Decrement"), React.createElement("span", {
                               className: "counter"
-                            }, String(match[0].count)), React.createElement("button", {
+                            }, String(state.data.counter + match[0].count | 0)), React.createElement("button", {
                               onClick: (function (param) {
-                                  return dispatch("Increment");
+                                  return dispatchLocal("Increment");
                                 })
                             }, "Increment")))));
 }
