@@ -12,7 +12,8 @@ function Controls(Props) {
                       className: "Controls-header"
                     }, React.createElement("div", undefined, React.createElement("button", {
                               onClick: (function (param) {
-                                  return Curry._1(dispatch, /* ChangeValue */{
+                                  return Curry._1(dispatch, {
+                                              TAG: /* ChangeValue */0,
                                               counter: state.data.counter - 10 | 0
                                             });
                                 })
@@ -20,11 +21,12 @@ function Controls(Props) {
                               className: "counter"
                             }, String(state.data.counter)), React.createElement("button", {
                               onClick: (function (param) {
-                                  return Curry._1(dispatch, /* ChangeValue */{
+                                  return Curry._1(dispatch, {
+                                              TAG: /* ChangeValue */0,
                                               counter: state.data.counter + 10 | 0
                                             });
                                 })
-                            }, "Increment")))));
+                            }, "Increment")), React.createElement("hr", undefined), React.createElement("div", undefined))));
 }
 
 var make = Controls;
